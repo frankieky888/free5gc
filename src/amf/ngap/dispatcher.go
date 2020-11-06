@@ -33,6 +33,7 @@ func Dispatch(conn net.Conn, msg []byte) {
 	}
 
 	pdu, err := ngap.Decoder(msg)
+	fmt.Println(msg)
 	if err != nil {
 		Ngaplog.Errorf("NGAP decode error : %s\n", err)
 		return
