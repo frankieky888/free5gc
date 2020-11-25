@@ -182,10 +182,11 @@ Status UpfN4BuildAssociationSetupResponse(Bufblk **bufBlkPtr, uint8_t type) {
     PfcpMessage pfcpMessage;
     PFCPAssociationSetupResponse *response = NULL;
     uint8_t cause;
-    uint16_t upFunctionFeature;
+    //uint16_t upFunctionFeature;
 
     response = &pfcpMessage.pFCPAssociationSetupResponse;
     memset(&pfcpMessage, 0, sizeof(PfcpMessage));
+    //memset(&upFunctionFeatures, 0, sizeof(UpFunctionFeatures))
     pfcpMessage.pFCPAssociationSetupResponse.presence = 1;
 
     /* node id */
@@ -211,14 +212,46 @@ Status UpfN4BuildAssociationSetupResponse(Bufblk **bufBlkPtr, uint8_t type) {
 
     // TODO: support UP Function Feature report
     /* UP Function Feature (Condition) */
-    upFunctionFeature = 0;
-    if (upFunctionFeature) {
+	UpFunctionFeatures upFunctionFeatures;
+upFunctionFeatures.treu = 1;
+upFunctionFeatures.ftup = 1;
+upFunctionFeatures.dlbd = 1;
+upFunctionFeatures.ddnd = 1;
+upFunctionFeatures.quoac = 1;
+upFunctionFeatures.pdiu = 1;
+upFunctionFeatures.empu = 1;
+upFunctionFeatures.adpdp = 1;
+
+upFunctionFeatures.heeu = 0;
+upFunctionFeatures.pfdm = 0;
+upFunctionFeatures.trst = 0;
+upFunctionFeatures.bucp = 0;
+upFunctionFeatures.epfar = 0;
+upFunctionFeatures.pfde = 0;
+upFunctionFeatures.frrt = 0;
+upFunctionFeatures.trace = 0;
+upFunctionFeatures.udbc = 0;
+upFunctionFeatures.gcom = 0;
+upFunctionFeatures.bundl = 0;
+upFunctionFeatures.mte =0;
+upFunctionFeatures.mnop =0;
+upFunctionFeatures.sset =0;
+upFunctionFeatures.ueip = 0;
+upFunctionFeatures.dpdra =0;
+upFunctionFeatures.mptcp =0;
+upFunctionFeatures.tscu =0;
+upFunctionFeatures.ip6pl =0;
+upFunctionFeatures.iptv =0;
+upFunctionFeatures.norp =0;
+upFunctionFeatures.vtime =0;
+upFunctionFeatures.rttl =0;
+upFunctionFeatures.mpas =0;
         response->uPFunctionFeatures.presence = 1;
-        response->uPFunctionFeatures.value = &upFunctionFeature;
-        response->uPFunctionFeatures.len = 2;
-    } else {
-        response->uPFunctionFeatures.presence = 0;
-    }
+        response->uPFunctionFeatures.value = &upFunctionFeatures;
+        response->uPFunctionFeatures.len = sizeof(UpFunctionFeatures);
+
+	
+    
 
     PfcpUserPlaneIpResourceInformation upIpResourceInformation;
     memset(&upIpResourceInformation, 0,

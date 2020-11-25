@@ -241,6 +241,42 @@ typedef struct _PfcpSDFFilterDescription {
 } __attribute__ ((packed)) PfcpSDFFilterDescription;
 
 
+typedef struct _UpFunctionFeatures{
+     ENDIAN8(uint8_t      treu:1;,
+             uint8_t      heeu:1;,
+             uint8_t      pfdm:1;,
+             uint8_t      ftup:1;,
+             uint8_t      trst:1;,
+             uint8_t      dlbd:1;,
+             uint8_t      ddnd:1;,
+             uint8_t      bucp:1;)
+     ENDIAN8(uint8_t      epfar:1;,
+             uint8_t      pfde:1;,
+             uint8_t      frrt:1;,
+             uint8_t      trace:1;,
+             uint8_t      quoac:1;,
+             uint8_t      udbc:1;,
+             uint8_t      pdiu:1;,
+             uint8_t      empu:1;)
+     ENDIAN8(uint8_t      gcom:1;,
+             uint8_t      bundl:1;,
+             uint8_t      mte:1;,
+             uint8_t      mnop:1;,
+             uint8_t      sset:1;,
+             uint8_t      ueip:1;,
+             uint8_t      adpdp:1;,
+             uint8_t      dpdra:1;)
+     ENDIAN8(uint8_t      mptcp:1;,
+             uint8_t      tscu:1;,
+             uint8_t      ip6pl:1;,
+             uint8_t      iptv:1;,
+             uint8_t      norp:1;,
+             uint8_t      vtime:1;,
+             uint8_t      rttl:1;,
+             uint8_t      mpas:1;)
+} __attribute__ ((packed)) UpFunctionFeatures;
+
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
