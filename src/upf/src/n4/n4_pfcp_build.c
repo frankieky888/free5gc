@@ -182,6 +182,7 @@ Status UpfN4BuildAssociationSetupResponse(Bufblk **bufBlkPtr, uint8_t type) {
     PfcpMessage pfcpMessage;
     PFCPAssociationSetupResponse *response = NULL;
     uint8_t cause;
+    uint8_t upIpResourceInformation;
     //uint16_t upFunctionFeature;
 
     response = &pfcpMessage.pFCPAssociationSetupResponse;
@@ -252,7 +253,8 @@ upFunctionFeatures.mpas =0;
 
 	
     
-
+    upIpResourceInformation = 0;
+if (upIpResourceInformation) {
     PfcpUserPlaneIpResourceInformation upIpResourceInformation;
     memset(&upIpResourceInformation, 0,
            sizeof(PfcpUserPlaneIpResourceInformation));
@@ -300,6 +302,7 @@ upFunctionFeatures.mpas =0;
     // HACK: sizeof(Internet) == 8, hardcord
     //response->userPlaneIPResourceInformation.len =
     //sizeof(PfcpUserPlaneIpResourceInformation);
+}
 
     pfcpMessage.header.type = type;
     status = PfcpBuildMessage(bufBlkPtr, &pfcpMessage);
