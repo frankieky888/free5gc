@@ -88,6 +88,7 @@ char* PfcpCauseGetName(uint8_t cause);
 #define PFCP_F_SEID_IPV4V6_LEN                   IPV4V6_LEN+PFCP_F_SEID_HDR_LEN
 
 
+
 typedef struct _PfcpUeIpAddr {
     ENDIAN5(uint8_t         spare:4;,
             uint8_t         ipv6d:1;,
@@ -276,10 +277,114 @@ typedef struct _UpFunctionFeatures{
              uint8_t      mpas:1;)
 } __attribute__ ((packed)) UpFunctionFeatures;
 
+typedef struct _HuaWei{
+     ENDIAN8(uint8_t      a:8;,
+             uint8_t      b:8;,
+             uint8_t      c:8;,
+             uint8_t      d:8;,
+             uint8_t      e:8;,
+             uint8_t      f:8;,
+             uint8_t      g:8;,
+             uint8_t      h:8;)
+     ENDIAN8(uint8_t      i:8;,
+             uint8_t      j:8;,
+             uint8_t      k:8;,
+             uint8_t      l:8;,
+             uint8_t      m:8;,
+             uint8_t      n:8;,
+             uint8_t      o:8;,
+             uint8_t      p:8;)
+     ENDIAN8(uint8_t      q:8;,
+             uint8_t      r:8;,
+             uint8_t      s:8;,
+             uint8_t      t:8;,
+             uint8_t      u:8;,
+             uint8_t      v:8;,
+             uint8_t      w:8;,
+             uint8_t      x:8;)
+     ENDIAN8(uint8_t      y:8;,
+             uint8_t      z:8;,
+             uint8_t      aa:8;,
+             uint8_t      bb:8;,
+             uint8_t      cc:8;,
+             uint8_t      dd:8;,
+             uint8_t      ee:8;,
+             uint8_t      ff:8;)
+     ENDIAN8(uint8_t      gg:8;,
+             uint8_t      hh:8;,
+             uint8_t      ii:8;,
+             uint8_t      jj:8;,
+             uint8_t      kk:8;,
+             uint8_t      ll:8;,
+             uint8_t      mm:8;,
+             uint8_t      nn:8;)
+     ENDIAN8(uint8_t      oo:8;,
+             uint8_t      pp:8;,
+             uint8_t      qq:8;,
+             uint8_t      rr:8;,
+             uint8_t      ss:8;,
+             uint8_t      tt:8;,
+             uint8_t      uu:8;,
+             uint8_t      vv:8;)
+     ENDIAN8(uint8_t      ww:8;,
+             uint8_t      xx:8;,
+             uint8_t      yy:8;,
+             uint8_t      zz:8;,
+             uint8_t      a3:8;,
+             uint8_t      b3:8;,
+             uint8_t      c3:8;,
+             uint8_t      d3:8;)
+     ENDIAN8(uint8_t      e3:8;,
+             uint8_t      f3:8;,
+             uint8_t      g3:8;,
+             uint8_t      h3:8;,
+             uint8_t      i3:8;,
+             uint8_t      j3:8;,
+             uint8_t      k3:8;,
+             uint8_t      l3:8;)
+     ENDIAN8(uint8_t      m3:8;,
+             uint8_t      n3:8;,
+             uint8_t      o3:8;,
+             uint8_t      p3:8;,
+             uint8_t      q3:8;,
+             uint8_t      r3:8;,
+             uint8_t      s3:8;,
+             uint8_t      t3:8;)
+     ENDIAN8(uint8_t      u3:8;,
+             uint8_t      v3:8;,
+             uint8_t      w3:8;,
+             uint8_t      x3:8;,
+             uint8_t      y3:8;,
+             uint8_t      z3:8;,
+             uint8_t      a4:8;,
+             uint8_t      b4:8;)
+     ENDIAN8(uint8_t      c4:8;,
+             uint8_t      d4:8;,
+             uint8_t      e4:8;,
+             uint8_t      f4:8;,
+             uint8_t      g4:8;,
+             uint8_t      h4:8;,
+             uint8_t      i4:8;,
+             uint8_t      j4:8;)
+     ENDIAN8(uint8_t      k4:8;,
+             uint8_t      l4:8;,
+             uint8_t      m4:8;,
+             uint8_t      n4:8;,
+             uint8_t      o4:8;,
+             uint8_t      p4:8;,
+             uint8_t      q4:8;,
+             uint8_t      r4:8;)
+     ENDIAN6(uint8_t      s4:8;,
+             uint8_t      t4:8;,
+             uint8_t      u4:8;,
+             uint8_t      v4:8;,
+             uint8_t      w4:8;,
+             uint8_t      x4:8;)
+} __attribute__ ((packed)) HuaWei;
+
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
 #endif /* __PFCP_TYPES_H__ */
-

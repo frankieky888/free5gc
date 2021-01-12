@@ -233,6 +233,8 @@ typedef struct _PfcpHeader {
 #define PFCP_FramedRoute_TYPE 153
 #define PFCP_FramedRouting_TYPE 154
 #define PFCP_FramedIPv6Route_TYPE 155
+#define PFCP_Huawei_TYPE 32910
+
 
 typedef TlvOctet Reserved;
 typedef TlvOctet Cause;
@@ -347,6 +349,8 @@ typedef TlvOctet TraceInformation;
 typedef TlvOctet FramedRoute;
 typedef TlvOctet FramedRouting;
 typedef TlvOctet FramedIPv6Route;
+typedef TlvOctet Hua_wei;
+//typedef TlvOCtet EnID;
 
 typedef struct _HeartbeatRequest {
     unsigned long presence;
@@ -386,6 +390,8 @@ typedef struct _PFCPAssociationSetupResponse {
     UPFunctionFeatures uPFunctionFeatures;
     CPFunctionFeatures cPFunctionFeatures;
     UserPlaneIPResourceInformation userPlaneIPResourceInformation;
+    Hua_wei huawei;
+    //EnID enid;
 } __attribute__((packed)) PFCPAssociationSetupResponse;
 
 typedef struct _PFCPAssociationUpdateResponse {
