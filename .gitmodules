@@ -1,105 +1,33 @@
-[submodule "src/amf"]
-	path = src/amf
-	url = ../amf.git
-[submodule "src/smf"]
-	path = src/smf
-	url = ../smf.git
-[submodule "src/upf"]
-	path = src/upf
-	url = ../upf.git
-[submodule "src/ausf"]
-	path = src/ausf
-	url = ../ausf.git
-[submodule "src/n3iwf"]
-	path = src/n3iwf
-	url = ../n3iwf.git
-[submodule "src/nrf"]
-	path = src/nrf
-	url = ../nrf.git
-[submodule "src/nssf"]
-	path = src/nssf
-	url = ../nssf.git
-[submodule "src/pcf"]
-	path = src/pcf
-	url = ../pcf.git
-[submodule "src/udm"]
-	path = src/udm
-	url = ../udm.git
-[submodule "src/udr"]
-	path = src/udr
-	url = ../udr.git
-[submodule "asn1c-s1ap"]
-	path = asn1c-s1ap
-	url = ../asn1c-s1ap.git
+[submodule "amf"]
+	path = NFs/amf
+	url = https://github.com/free5gc/amf.git
+[submodule "ausf"]
+	path = NFs/ausf
+	url = https://github.com/free5gc/ausf.git
+[submodule "n3iwf"]
+	path = NFs/n3iwf
+	url = https://github.com/free5gc/n3iwf.git
+[submodule "nrf"]
+	path = NFs/nrf
+	url = https://github.com/free5gc/nrf.git
+[submodule "nssf"]
+	path = NFs/nssf
+	url = https://github.com/free5gc/nssf.git
+[submodule "pcf"]
+	path = NFs/pcf
+	url = https://github.com/free5gc/pcf.git
+[submodule "smf"]
+	path = NFs/smf
+	url = https://github.com/free5gc/smf.git
+[submodule "udm"]
+	path = NFs/udm
+	url = https://github.com/free5gc/udm.git
+[submodule "udr"]
+	path = NFs/udr
+	url = https://github.com/free5gc/udr.git
+[submodule "upf"]
+	path = NFs/upf
+	url = https://github.com/free5gc/upf.git
 [submodule "webconsole"]
 	path = webconsole
-	url = ../webconsole.git
-[submodule "lib/CommonConsumerTestData"]
-	path = lib/CommonConsumerTestData
-	url = ../CommonConsumerTestData.git
-[submodule "lib/MongoDBLibrary"]
-	path = lib/MongoDBLibrary
-	url = ../MongoDBLibrary.git
-[submodule "lib/TimeDecode"]
-	path = lib/TimeDecode
-	url = ../TimeDecode.git
-[submodule "lib/UeauCommon"]
-	path = lib/UeauCommon
-	url = ../UeauCommon.git
-[submodule "lib/aes"]
-	path = lib/aes
-	url = ../aes.git
-[submodule "lib/aper"]
-	path = lib/aper
-	url = ../aper.git
-[submodule "lib/flowdesc"]
-	path = lib/flowdesc
-	url = ../flowdesc.git
-[submodule "lib/fsm"]
-	path = lib/fsm
-	url = ../fsm.git
-[submodule "lib/http2_util"]
-	path = lib/http2_util
-	url = ../http2_util.git
-[submodule "lib/http_wrapper"]
-	path = lib/http_wrapper
-	url = ../http_wrapper.git
-[submodule "lib/logger_util"]
-	path = lib/logger_util
-	url = ../logger_util.git
-[submodule "lib/milenage"]
-	path = lib/milenage
-	url = ../milenage.git
-[submodule "lib/nas"]
-	path = lib/nas
-	url = ../nas.git
-[submodule "lib/ngap"]
-	path = lib/ngap
-	url = ../ngap.git
-[submodule "lib/openapi"]
-	path = lib/openapi
-	url = ../openapi.git
-[submodule "lib/path_util"]
-	path = lib/path_util
-	url = ../path_util.git
-[submodule "lib/pfcp"]
-	path = lib/pfcp
-	url = ../pfcp.git
-[submodule "lib/timer"]
-	path = lib/timer
-	url = ../timer.git
-[submodule "lib/tlv"]
-	path = lib/tlv
-	url = ../tlv.git
-[submodule "lib/util_3gpp"]
-	path = lib/util_3gpp
-	url = ../util_3gpp.git
-[submodule "lib/logger_conf"]
-	path = lib/logger_conf
-	url = ../logger_conf.git
-[submodule "free5gc-compose"]
-	path = compose
-	url = ../free5gc-compose.git
-[submodule "lib/idgenerator"]
-	path = lib/idgenerator
-	url = ../idgenerator.git
+	url = https://github.com/free5gc/webconsole.git

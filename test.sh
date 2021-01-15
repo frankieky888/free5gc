@@ -29,14 +29,14 @@ do
 done
 shift $(($OPTIND - 1))
 
-TEST_POOL="TestRegistration|TestServiceRequest|TestXnHandover|TestN2Handover|TestDeregistration|TestPDUSessionReleaseRequest|TestPaging|TestNon3GPP|TestAFInfluenceOnTrafficRouting"
+TEST_POOL="TestRegistration|TestGUTIRegistration|TestServiceRequest|TestXnHandover|TestN2Handover|TestDeregistration|TestPDUSessionReleaseRequest|TestPaging|TestNon3GPP|TestReSynchronisation|TestDuplicateRegistration"
 if [[ ! "$1" =~ $TEST_POOL ]]
 then
     echo "Usage: $0 [ ${TEST_POOL//|/ | } ]"
     exit 1
 fi
 
-cp config/test/smfcfg.single.test.conf config/test/smfcfg.test.conf
+cp config/test/smfcfg.single.test.yaml config/test/smfcfg.test.yaml
 
 GOPATH=$HOME/go
 if [ $OS == "Ubuntu" ]; then
@@ -76,7 +76,7 @@ then
     LOCALDUMP=$!
 fi
 
-cd src/upf/build && ${EXEC_UPFNS} ./bin/free5gc-upfd -f config/upfcfg.test.yaml &
+cd NFs/upf/build && ${EXEC_UPFNS} ./bin/free5gc-upfd -f config/upfcfg.test.yaml &
 sleep 2
 
 if [[ "$1" == "TestNon3GPP" ]]
@@ -102,23 +102,33 @@ then
     sudo ip link set ipsec0 up
 
     # Configuration
-    cp -f config/amfcfg.conf config/amfcfg.conf.bak
-    cp -f config/amfcfg.n3test.conf config/amfcfg.conf
+    cp -f config/amfcfg.yaml config/amfcfg.yaml.bak
+    cp -f config/amfcfg.n3test.yaml config/amfcfg.yaml
 
     # Run CN
-    cd src/test && $GOROOT/bin/go test -v -vet=off -timeout 0 -run TestCN &
+    cd test && $GOROOT/bin/go test -v -vet=off -timeout 0 -run TestCN &
     sleep 10
 
     # Run N3IWF
-    cd src/n3iwf && sudo -E $GOROOT/bin/go run n3iwf.go &
+    cd NFs/n3iwf && sudo -E $GOROOT/bin/go run n3iwf.go &
     sleep 5
 
     # Run Test UE
-    cd src/test
+    cd test
     ${EXEC_UENS} $GOROOT/bin/go test -v -vet=off -timeout 0 -run TestNon3GPPUE -args noinit
 
 else
-    cd src/test
+    #NF_PATH=`pwd`/NFs
+    #./bin/nrf &
+    #sleep 1
+    #./bin/amf &
+    #./bin/ausf &
+    #./bin/nssf &
+    #./bin/smf -smfcfg ./config/test/smfcfg.test.yaml&
+    #./bin/udm &
+    #./bin/udr &
+    #sleep 4
+    cd test
     $GOROOT/bin/go test -v -vet=off -run $1
 fi
 
@@ -132,7 +142,7 @@ then
     sudo -E kill -SIGINT ${LOCALDUMP}
 fi
 
-cd ../..
+cd ..
 mkdir -p testkeylog
 for KEYLOG in $(ls *sslkey.log); do
     mv $KEYLOG testkeylog
@@ -152,8 +162,8 @@ then
     sudo ip netns del ${UENS}
     sudo killall n3iwf
     killall test.test
-    cp -f config/amfcfg.conf.bak config/amfcfg.conf
-    rm -f config/amfcfg.conf.bak
+    cp -f config/amfcfg.yaml.bak config/amfcfg.yaml
+    rm -f config/amfcfg.yaml.bak
 fi
 
 sleep 2
